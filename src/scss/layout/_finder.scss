@@ -1,0 +1,28 @@
+.finder {
+  &__title {
+    color: rgb(88, 225, 223);
+  }
+  &__form {
+    &--input {
+      height: 40px;
+      width: 500px;
+      border: 2px solid rgb(88, 225, 223);
+      border-radius: 5px;
+      background-color: black;
+      color: white;
+      font-size: 16px;
+      padding-left: 15px;
+      margin-top: 30px;
+      margin-bottom: 30px;
+    }
+    &--btn {
+      height: 30px;
+      width: 100px;
+      border-radius: 5px;
+      background-color: rgb(88, 225, 223);
+      border: 2px solid rgb(88, 225, 223);
+      color: white;
+      font-weight: bold;
+    }
+  }
+}
