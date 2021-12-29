@@ -1,0 +1,50 @@
+.results {
+  height: 100%;
+  border: 4px solid rgb(218, 217, 217);
+  border-radius: 5px;
+  margin-left: 10px;
+  grid-column: 2 / 3;
+  grid-row: 1 / 2;
+  min-width: 350px;
+  &__subtitle {
+    font-weight: 500;
+    text-align: center;
+    background-color: rgb(218, 217, 217);
+    padding: 10px;
+  }
+  &__container {
+    padding: 25px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    &--text {
+      color: white;
+    }
+    &--card {
+      margin: 5px;
+      max-width: 200px;
+      box-sizing: content-box;
+      border-radius: 3px;
+
+      & .img {
+        width: 200px;
+        height: 250px;
+      }
+      & .name {
+        margin-top: 5px;
+        text-align: center;
+        margin-bottom: 20px;
+      }
+    }
+  }
+}
+.gray {
+  color: gray;
+  border: none;
+}
+.favourite_color {
+  color: rgb(88, 225, 223);
+}
+.favourite_border {
+  border: 2px solid rgb(88, 225, 223);
+}

@@ -1,6 +1,8 @@
 .finder {
+  margin-bottom: 40px;
   &__title {
     color: rgb(88, 225, 223);
+    font-size: 35px;
   }
   &__form {
     &--input {
@@ -23,6 +25,10 @@
       border: 2px solid rgb(88, 225, 223);
       color: white;
       font-weight: bold;
+      margin-left: 20px;
+      &:hover {
+        background-color: black;
+      }
     }
   }
 }
