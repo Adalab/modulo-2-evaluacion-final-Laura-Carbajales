@@ -2,6 +2,7 @@
 //HTML
 const btnSearch = document.querySelector('.js-search');
 const btnReset = document.querySelector('.js-reset');
+const btnResetFavorites = document.querySelector('.js-resetFavorites');
 const inputSearch = document.querySelector('.js-input');
 const cardsSection = document.querySelector('.js-cardContainer');
 const favoriteSection = document.querySelector('.js-favouriteContainer');
@@ -11,6 +12,8 @@ let favorites = [];
 let results = [];
 
 //Functions
+
+//Hacer que aparezcan los resultados de la búsqueda:
 function handleClickResults(event) {
   event.preventDefault();
   const inputValue = inputSearch.value;
@@ -21,10 +24,12 @@ function handleClickResults(event) {
       renderAllCards(results);
     });
 }
+
+//Renderizar una card con los datos de la API:
 function renderCard(dataCard) {
   let articleClass = 'gray';
   let nameClass = 'gray';
-  const indexResult = favorites.findIndex((favorite) => dataCard.mal_id === parseInt(favorite.id));
+  const indexResult = favorites.findIndex((favorite) => dataCard.mal_id === favorite.id);
   if (indexResult !== -1) {
     articleClass = 'favourite_border';
     nameClass = 'favourite_color';
@@ -40,6 +45,7 @@ function renderCard(dataCard) {
 </article>`;
 }
 
+//Renderizar las 50 cards que te devuelve la API:
 function renderAllCards(cards) {
   cardsSection.innerHTML = '';
   if (cards === undefined) {
@@ -57,6 +63,7 @@ function renderAllCards(cards) {
   }
 }
 
+//Funcionalidad del botón de reset del input:
 function handleClickResetResults(event) {
   event.preventDefault();
   inputSearch.value = '';
@@ -64,24 +71,36 @@ function handleClickResetResults(event) {
   results = [];
 }
 
+//Cambiar el style de las cards de resultados al clickarlas y añadirlas al array "favorites" para renderizarlas:
 function handleClickCard(event) {
   const selectedCard = event.currentTarget;
-  selectedCard.classList.remove('gray');
-  selectedCard.classList.add('favourite_border');
-  selectedCard.querySelector('.js-name').classList.remove('gray');
-  selectedCard.querySelector('.js-name').classList.add('favourite_color');
+  const name = selectedCard.querySelector('.js-name');
   const favoriteData = {
     name: selectedCard.dataset.name,
     url: selectedCard.dataset.img,
-    id: selectedCard.dataset.id,
+    id: parseInt(selectedCard.dataset.id),
   };
   const indexResult = favorites.findIndex((favoriteCard) => favoriteCard.id === favoriteData.id);
   if (indexResult === -1) {
+    selectedCard.classList.remove('gray');
+    selectedCard.classList.add('favourite_border');
+    name.classList.remove('gray');
+    name.classList.add('favourite_color');
     favorites.push(favoriteData);
     renderAllFavorites(favorites);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
+  } else {
+    selectedCard.classList.remove('favourite_border');
+    selectedCard.classList.add('gray');
+    name.classList.remove('favourite_color');
+    name.classList.add('gray');
+    favorites.splice(indexResult, 1);
+    renderAllFavorites(favorites);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
   }
 }
 
+//Renderizar una card de favoritos con los datos de array "favorites":
 function renderFavoriteCard(favoriteItem) {
   favoriteSection.innerHTML += `<article class="favorites__container--card" data-id="${favoriteItem.id}">
   <img class="img"
@@ -94,6 +113,7 @@ function renderFavoriteCard(favoriteItem) {
     `;
 }
 
+//Renderizar todas las cards del array "favorites":
 function renderAllFavorites(favorites) {
   favoriteSection.innerHTML = '';
   if (favorites.length === 0) {
@@ -109,19 +129,43 @@ function renderAllFavorites(favorites) {
   }
 }
 
+//Funcionalidad del botón "esc" de las cards de favoritos:
 function handleClickBtnEsc(event) {
   const selectedFavouriteCard = event.currentTarget.parentNode;
 
   const indexResult = favorites.findIndex(
-    (favorite) => selectedFavouriteCard.dataset.id === favorite.id
+    (favorite) => parseInt(selectedFavouriteCard.dataset.id) === favorite.id
   );
   if (indexResult !== -1) {
     favorites.splice(indexResult, 1);
+    localStorage.setItem('favorites', JSON.stringify(favorites));
     renderAllFavorites(favorites);
     renderAllCards(results);
   }
 }
 
+function getFavoritesFromLocalStorage() {
+  const savedFavorites = localStorage.getItem('favorites');
+  if (savedFavorites === null) {
+    favorites = [];
+  } else {
+    favorites = JSON.parse(savedFavorites);
+
+    renderAllFavorites(favorites);
+  }
+}
+
+getFavoritesFromLocalStorage();
+
+//Funcionalidad botón de reset de la seccion favoritos:
+function handleClickResetFavorites() {
+  favorites = [];
+  localStorage.setItem('favorites', JSON.stringify(favorites));
+  renderAllFavorites(favorites);
+  renderAllCards(results);
+}
+
 //Listener
 btnSearch.addEventListener('click', handleClickResults);
 btnReset.addEventListener('click', handleClickResetResults);
+btnResetFavorites.addEventListener('click', handleClickResetFavorites);

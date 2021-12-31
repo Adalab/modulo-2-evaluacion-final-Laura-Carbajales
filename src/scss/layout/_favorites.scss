@@ -6,11 +6,26 @@
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   min-width: 350px;
-  &__subtitle {
-    font-weight: 500;
-    text-align: center;
+  &__subgroup {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
     background-color: pink;
-    padding: 10px;
+    &--subtitle {
+      font-weight: 500;
+      text-align: center;
+      padding: 10px;
+    }
+    &--btn {
+      height: 30px;
+      width: 60px;
+      background-color: pink;
+      border: none;
+      & .bin {
+        color: black;
+        font-size: 20px;
+      }
+    }
   }
   &__container {
     text-align: center;
