@@ -118,7 +118,11 @@ function renderAllFavorites(favorites) {
   favoriteSection.innerHTML = '';
   if (favorites.length === 0) {
     favoriteSection.innerHTML += `<p class="favorites__container--text">Aún no tienes ningún favorito añadido.</p>`;
+    btnResetFavorites.classList.add('hidden');
+    btnResetFavorites.classList.remove('bin');
   } else {
+    btnResetFavorites.classList.remove('hidden');
+    btnResetFavorites.classList.add('bin');
     for (const favoriteItem of favorites) {
       renderFavoriteCard(favoriteItem);
     }
@@ -150,7 +154,6 @@ function getFavoritesFromLocalStorage() {
     favorites = [];
   } else {
     favorites = JSON.parse(savedFavorites);
-
     renderAllFavorites(favorites);
   }
 }

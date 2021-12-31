@@ -21,7 +21,7 @@
       color: white;
     }
     &--card {
-      margin: 5px;
+      margin: 10px;
       max-width: 200px;
       box-sizing: content-box;
       border-radius: 3px;
@@ -34,6 +34,11 @@
         margin-top: 5px;
         text-align: center;
         margin-bottom: 20px;
+      }
+      &:hover {
+        transform: scale(1.03);
+        box-shadow: 0px 0px 15px 5px rgb(88, 225, 223);
+        transition: box-shadow 0.2s ease, transform 0.2s ease;
       }
     }
   }

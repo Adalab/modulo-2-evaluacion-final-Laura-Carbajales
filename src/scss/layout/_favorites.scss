@@ -21,23 +21,27 @@
       width: 60px;
       background-color: pink;
       border: none;
-      & .bin {
-        color: black;
-        font-size: 20px;
-      }
     }
   }
   &__container {
     text-align: center;
+    padding-top: 10px;
     &--text {
-      margin-top: 20px;
+      margin-top: 10px;
       color: white;
     }
     &--card {
-      padding: 10px 20px 10px 20px;
+      padding: 20px 20px 10px 20px;
+      margin-left: 10px;
+      margin-right: 10px;
+      border-bottom: 1px solid rgba(128, 128, 128, 0.31);
+      border-top: 1px solid rgba(128, 128, 128, 0.31);
       display: flex;
       justify-content: space-between;
       align-items: center;
+      &:hover {
+        background-color: rgba(128, 128, 128, 0.207);
+      }
       & .img {
         height: 150px;
         width: 100px;
@@ -64,5 +68,15 @@
         }
       }
     }
+  }
+}
+.hidden {
+  display: none;
+}
+.bin {
+  color: black;
+  font-size: 20px;
+  &:hover {
+    color: gray;
   }
 }
