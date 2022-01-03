@@ -39,18 +39,20 @@
       <section class="favorites">
           <div class="favorites__subgroup">
               <h2 class="favorites__subgroup--subtitle">Series Favoritas</h2>
-              <button class="favorites__subgroup--btn hidden js-resetFavorites"><i
-                      class="bin fas fa-trash-alt"></i></button>
           </div>
-          <div class="favorites__container js-favouriteContainer">
-              <p class="favorites__container--text">Aún no tienes ningún favorito
-                  añadido.</p>
+          <ul class="favorites__container js-favouriteContainer">
+              <li class="favorites__container--text">Aún no tienes ningún favorito
+                  añadido.</li>
+          </ul>
+          <div class="favorites__btn">
+              <button class="favorites__btn--delete  js-resetFavorites">Borrar
+                  favoritos</button>
           </div>
       </section>
       <section class="results">
           <h2 class="results__subtitle">Resultados</h2>
-          <div class="results__container js-cardContainer">
-          </div>
+          <ul class="results__container js-cardContainer">
+          </ul>
       </section>
   </div>
 
