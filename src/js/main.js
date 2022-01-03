@@ -35,14 +35,14 @@ function renderCard(dataCard) {
     nameClass = 'favourite_color';
   }
   cardsSection.innerHTML += `
-    <article class="results__container--card ${articleClass} js-card" data-name="${
+    <li class="results__container--card ${articleClass} js-card" data-name="${
     dataCard.title
   }" data-img="${dataCard.image_url}" data-id="${dataCard.mal_id}">
     <img class="img"
         src="${dataCard.image_url || 'https://via.placeholder.com/200x250/ffffff/666666/?text=img'}"
         alt="caratula de la serie" />
     <h3 class="name ${nameClass} js-name">${dataCard.title}</h3>
-</article>`;
+</li>`;
 }
 
 //Renderizar las 50 cards que te devuelve la API:
@@ -102,14 +102,14 @@ function handleClickCard(event) {
 
 //Renderizar una card de favoritos con los datos de array "favorites":
 function renderFavoriteCard(favoriteItem) {
-  favoriteSection.innerHTML += `<article class="favorites__container--card" data-id="${favoriteItem.id}">
+  favoriteSection.innerHTML += `<li class="favorites__container--card" data-id="${favoriteItem.id}">
   <img class="img"
       src="${favoriteItem.url}"
       alt="caratula de la serie" />
   <h3 class="title">${favoriteItem.name}
   </h3>
   <button class="esc js-btnEsc"><i class="icon fas fa-times"></i></button>
-</article>
+</li>
     `;
 }
 
@@ -117,7 +117,7 @@ function renderFavoriteCard(favoriteItem) {
 function renderAllFavorites(favorites) {
   favoriteSection.innerHTML = '';
   if (favorites.length === 0) {
-    favoriteSection.innerHTML += `<p class="favorites__container--text">Aún no tienes ningún favorito añadido.</p>`;
+    favoriteSection.innerHTML += `<li class="favorites__container--text">Aún no tienes ningún favorito añadido.</li>`;
     btnResetFavorites.classList.add('hidden');
     btnResetFavorites.classList.remove('bin');
   } else {

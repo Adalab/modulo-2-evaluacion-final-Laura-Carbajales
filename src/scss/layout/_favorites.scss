@@ -6,24 +6,22 @@
   grid-column: 1 / 2;
   grid-row: 1 / 2;
   min-width: 350px;
+  margin-left: 30px;
+
   &__subgroup {
     display: flex;
     justify-content: space-between;
     align-items: center;
     background-color: pink;
+    width: 100%;
     &--subtitle {
       font-weight: 500;
       text-align: center;
       padding: 10px;
     }
-    &--btn {
-      height: 30px;
-      width: 60px;
-      background-color: pink;
-      border: none;
-    }
   }
   &__container {
+    list-style: none;
     text-align: center;
     padding-top: 10px;
     &--text {
@@ -69,14 +67,28 @@
       }
     }
   }
+  &__btn {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    &--delete {
+      height: 40px;
+      width: 200px;
+      border-radius: 30px;
+      background-color: rgba(88, 225, 223, 0);
+      border: 2px solid pink;
+      color: pink;
+      font-size: 16px;
+      font-weight: bold;
+      margin: 20px;
+      &:hover {
+        background-color: rgb(29, 29, 29);
+        transform: scale(1.05);
+        transition: background-color 0.7s ease, transform 0.2s ease;
+      }
+    }
+  }
 }
 .hidden {
   display: none;
-}
-.bin {
-  color: black;
-  font-size: 20px;
-  &:hover {
-    color: gray;
-  }
 }
