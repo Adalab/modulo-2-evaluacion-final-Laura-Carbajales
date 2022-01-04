@@ -22,7 +22,8 @@ La aplicación de búsqueda de serie consta de dos partes:
 
 - Un listado de resultados de búsqueda donde aparece el cartel de la serie y el título.
 
-![diseño_buscador_series](https://user-images.githubusercontent.com/93197904/148049602-edab970d-518f-4a65-bdff-855c4e95c573.png)
+![diseño_final_buscador_series](https://user-images.githubusercontent.com/93197904/148054959-b2f5c907-0a7c-42a0-b32a-435e71b49554.png)
+
 
 #### 2. Búsqueda
 
