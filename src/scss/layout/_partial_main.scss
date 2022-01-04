@@ -3,7 +3,8 @@
   font-family: 'Roboto', sans-serif;
 }
 .container_main {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  grid-template-rows: 1fr;
+  height: 100vh;
+  @media (min-width: 768px) {
+    display: flex;
+  }
 }

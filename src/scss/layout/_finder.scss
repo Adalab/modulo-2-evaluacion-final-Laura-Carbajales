@@ -1,5 +1,4 @@
 .finder {
-  margin-bottom: 40px;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -9,7 +8,7 @@
   background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
-  border-bottom: 2px solid gray;
+  border-bottom: 2px solid rgba(128, 128, 128, 0.31);
   &__img {
     height: 200px;
   }
@@ -29,7 +28,7 @@
       width: 500px;
       border: none;
       border-radius: 15px;
-      border: 2px solid white;
+      border: 2px solid rgb(88, 225, 223);
       background-color: rgb(21, 21, 21);
       color: white;
       font-size: 16px;
@@ -40,8 +39,8 @@
       width: 100px;
       border-radius: 30px;
       background-color: rgba(88, 225, 223, 0);
-      border: 2px solid white;
-      color: white;
+      border: 2px solid rgb(88, 225, 223);
+      color: rgb(88, 225, 223);
       font-size: 16px;
       font-weight: bold;
       margin-left: 20px;
