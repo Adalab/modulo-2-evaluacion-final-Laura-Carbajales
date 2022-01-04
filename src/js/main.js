@@ -50,8 +50,6 @@ function renderAllCards(cards) {
   cardsSection.innerHTML = '';
   if (cards === undefined) {
     cardsSection.innerHTML += `<p class="results__container--text">Ha ocurrido un error. No hemos encontrado resultados para tu búsqueda.</p>`;
-  } else if (cards.length === 0) {
-    cardsSection.innerHTML += `<p class="results__container--text">No hay resultados para tu búsqueda.</p>`;
   } else {
     for (const card of cards) {
       renderCard(card);
