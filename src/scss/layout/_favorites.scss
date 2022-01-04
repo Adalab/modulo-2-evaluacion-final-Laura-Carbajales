@@ -77,9 +77,10 @@
       font-weight: bold;
       margin: 20px;
       &:hover {
-        background-color: rgb(29, 29, 29);
+        border: 2px solid rgb(88, 225, 223);
         transform: scale(1.05);
-        transition: background-color 0.7s ease, transform 0.2s ease;
+        color: rgb(88, 225, 223);
+        transition: border 0.7s ease, color 0.7s ease, transform 0.2s ease;
       }
     }
   }
