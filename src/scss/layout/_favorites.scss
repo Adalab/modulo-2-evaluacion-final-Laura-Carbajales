@@ -1,6 +1,6 @@
 .favorites {
   height: 100vh;
-  background-color: rgb(38, 37, 37);
+  background-color: rgb(28, 27, 27);
   width: 30vw;
   min-width: 350px;
   padding: 10px;
@@ -54,9 +54,10 @@
           font-size: 20px;
         }
         &:hover {
-          background-color: black;
+          border: 2px solid rgb(88, 225, 223);
+          background-color: rgba(255, 255, 255, 0);
           & .icon {
-            color: white;
+            color: rgb(88, 225, 223);
           }
         }
       }
